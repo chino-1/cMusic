@@ -1,0 +1,99 @@
+.comment-total{
+    width: 90%;
+    margin: 5px auto;
+    font-size: 18px;
+    font-weight: 500;
+  }
+  .comment-top{
+    width: 90%;
+    margin: 10px auto;
+    display: flex;
+  }
+  .top-img{
+    width: 60px;
+    height: 60px;
+  }
+  .top-img img{
+    width: 100%;
+    border-radius: 4px;
+  }
+  .top-text{
+    display: flex;
+    flex-direction: column;
+    padding-left: 6px;
+  }
+  .text-name{
+    font-size: 15px;
+  }
+  .top-text span{
+    padding-top: 5px;
+    font-size: 12px;
+    color:rgba(123, 104, 238);
+  }
+  .comment-top i{
+    align-self: center;
+  }
+  .backgroundshadow{
+    height: 5px;
+    background-color: rgba(220,220,220,.3);
+  }
+  
+  .middle-text{
+    width: 90%;
+    margin: 5px auto;
+    display: flex;
+    font-size: 12px;
+  }
+  .middle-text-left{
+    width: 170px;
+  }
+  .middle-text-right{
+    display: flex;
+  }
+  .middle-text-right div{
+    padding: 0 5px;
+  }
+  .middle-text-right span{
+    color: rgba(220,220,220);
+  }
+  .middle-comments{
+    box-shadow: 0 1px 0 0 rgba(128,128,128,.3);
+  }
+  .middle-user{
+    width: 90%;
+    margin: 8px auto;
+    display: flex;
+  }
+  .user-img{
+    width: 26px;
+    height: 26px;
+  }
+  .user-img img{
+    width: 100%;
+    border-radius: 50%;
+  }
+  .user-nickname{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    width: 180px;
+    padding-left: 6px;
+  }
+  .nickname{
+    font-size: 10px;
+  }
+  .time{
+    font-size: 6px;
+    color: gray;
+  }
+  .likecount{
+    font-size: 10px;
+    color: gray;
+  }
+  .comments-content{
+    width: 70%;
+    margin: 0 auto;
+    padding-bottom: 8px;
+    font-size: 12px;
+    line-height: 16px;
+  }

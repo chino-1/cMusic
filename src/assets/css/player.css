@@ -1,0 +1,142 @@
+  #player{
+    height: 100vh;
+    background: linear-gradient(to bottom, #200122, #6f0000);
+  }
+  .topbar{
+     display: flex;
+     height: 49px;
+  }
+  .topbar i{
+    text-align: center;
+    line-height: 49px;
+    font-weight: 500;
+    font-size: 20px;
+    color: #fff;
+  }
+  .text{
+    padding-left: 10px;
+    display: flex;
+    width: 240px;
+    flex-direction: column;
+    justify-content: center;
+  }
+  .name{
+      font-size: 16px;
+      color: #fff;
+      font-weight: 700;
+      text-overflow: ellipsis;
+      white-space: nowrap;
+      overflow: hidden;
+  }
+  .user{
+      font-size: 10px;
+      font-weight: 700;
+      text-overflow: ellipsis;
+      white-space: nowrap;
+      overflow: hidden;
+      color: gray;
+  }
+  .el-icon-share{
+     flex: 1;
+  }
+  
+  .middle{
+    width: 100%;
+    height: 400px;
+    display: flex;
+    justify-content: center;
+  }
+  .cd-wrapper {
+    border: 8px solid rgba(0, 0, 0, 0.3);
+    height: 200px;
+    width: 200px;
+    border-radius: 50%;
+    overflow: hidden;
+    position: relative;
+    top: 49px;
+    animation: animations1 10s linear infinite forwards;   /* 这两句话是新的方法 */
+    animation-play-state: paused;
+  }
+  .cd-wrapper img{
+    width: 100%;
+    height: 100%;
+  }
+  /* .rotate{
+    -webkit-animation: rotate 10s linear infinite;    这是旧的方法实现旋转，与底部的注释样式配套，留作参考
+    -moz-animation: rotate 10s linear infinite;       :class="{'rotate':isrotate}"  这个旧方法的缺陷是添加
+    -o-animation: rotate 10s linear infinite;         class实现旋转样式，当音乐暂停时样式被去除，图片会回到起点，
+    animation: rotate 10s linear infinite;            而新方法用animationplaystate处理暂停和播放的图片旋转
+  } */
+  
+  .bottom{
+    height: 119px;
+  }
+  .icon1{
+    padding-top: 10px;
+    display: flex;
+    justify-content: space-around;
+    color: rgba(255, 255, 255, 0.486);
+  }
+  .icon1 i{
+    text-align: center;
+  }
+  .comment{
+    display: flex;
+    flex-direction: column;
+  }
+  .comment span{
+    font-size: 8px;
+  }
+  .progress{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+  .song-time{
+    text-align: center;
+    overflow: hidden;
+    color: 	#8B8B7A;
+    width: 40px;
+    font-size: 4px;
+  }
+  .progress-item{
+    flex:1;
+  }
+  .icon2{
+    display: flex;
+    color: rgba(255, 255, 255, 0.486);
+    padding-top: 10px;
+    align-items: center;
+  }
+  .icon2 i{
+    flex: 1;
+    text-align: center;
+  }
+  .bofan{
+    font-size: 30px;
+  }
+  
+  @keyframes animations1{   /* 新方法定义动画旋转 */
+    0%{
+      transform:  rotate(0deg);
+    }
+    50%{
+      transform:  rotate(180deg);
+    }
+    100%{
+      transform:  rotate(360deg);
+    }
+  }
+  /* @-webkit-keyframes rotate{from{-webkit-transform: rotate(0deg)}   旧方法
+      to{-webkit-transform: rotate(360deg)}
+  }
+  @-moz-keyframes rotate{from{-moz-transform: rotate(0deg)}
+      to{-moz-transform: rotate(359deg)}
+  }
+  @-o-keyframes rotate{from{-o-transform: rotate(0deg)}
+      to{-o-transform: rotate(359deg)}
+  }
+  @keyframes rotate{from{transform: rotate(0deg)}
+      to{transform: rotate(359deg)}
+  } */
+  
