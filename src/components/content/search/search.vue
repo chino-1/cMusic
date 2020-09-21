@@ -16,7 +16,9 @@
 import NavBar from '../../common/navbar/NavBar'
 import HotSearch from './hotsearch'
 import SearchSongs from './searchsongs'
+
 import {getSearchDefault,getSearch} from 'network/index'
+import {checkSpecialKey,checkinput} from 'components/common/filters/checkspecialkey' //引入判断是否存在特殊字符的函数
 export default {
    name:'Search',
    components:{
@@ -42,11 +44,15 @@ export default {
        }
      },
      onsubmit(){
-       getSearch(this.inputContent,this.limitValue).then(res=>{
-          // console.log(res)
-          this.searchsongs = res.result.songs
-          this.showsearch = true
-       })
+       if(checkinput(this.inputContent)){
+         getSearch(this.inputContent,this.limitValue).then(res=>{
+            // console.log(res)
+            this.searchsongs = res.result.songs
+            this.showsearch = true
+         })
+       }else{
+         alert('禁止输入特殊字符或者使用跨站脚本攻击')
+       }
      },
      gethotsearchword(searchword){
        getSearch(searchword,this.limitValue).then(res=>{

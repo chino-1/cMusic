@@ -8,6 +8,7 @@
 </template>
 <script>
 import {getLogin} from 'network/index'
+import {checkSpecialKey,checkinput} from 'components/common/filters/checkspecialkey' //引入判断是否存在特殊字符的函数
 export default {
    name:'PhoneLogin',
    data() {
@@ -15,16 +16,21 @@ export default {
            phone:'',
            password:'',
        }
-   },methods: {
+   },
+   methods: {
        addlogin(){
-          this.$store.commit('changeLogin')
-          this.$store.commit('changeSide')
-          this.$router.push('/home')
-          getLogin(this.phone,this.password).then(res=>{
-            //   console.log(res)
-              this.$store.commit('changeUid',res.account)
-              this.$bus.$emit('getuid')
-          })
+          if(checkinput(this.phone) && checkinput(this.password)){
+            this.$store.commit('changeLogin')
+            this.$store.commit('changeSide')
+            this.$router.push('/home')
+            getLogin(this.phone,this.password).then(res=>{
+                //   console.log(res)
+                this.$store.commit('changeUid',res.account)
+                this.$bus.$emit('getuid')
+            })
+          }else{
+              alert('禁止输入特殊字符或者使用跨站脚本攻击')
+          }
        }
    },
 }
