@@ -1,6 +1,8 @@
 <template>
-  <div>
-      <div v-for="(item,index) in recommendMvdata" :key="index">
+  <div id="video">
+      <video-play :recommendMvdata="MvId" v-if="vshow"></video-play>
+
+      <div v-for="(item,index) in recommendMvdata" :key="index" v-show="!vshow">
           <div class="video-item">
             <div class="video-img" :class="{active: index === currentIndex}">
                 <img :src="item.picUrl" alt="">
@@ -19,8 +21,6 @@
             </div>
           </div>
       </div>
-      
-      <video-play :recommendMvdata="MvId" v-if="vshow"></video-play>
   </div>
 </template>
 <script>
@@ -79,6 +79,9 @@ export default {
 }
 </script>
 <style scoped>
+#video{
+    height: 100vh;
+}
 .video-item{
     width: 300px;
     margin: 0 auto;

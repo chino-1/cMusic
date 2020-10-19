@@ -1,5 +1,5 @@
 <template>
-  <div>
+  <div id="profile">
       <div @click="itemclick">点击进入歌单广场</div>
   </div>
 </template>
@@ -14,4 +14,7 @@ export default {
 }
 </script>
 <style scoped>
+#profile{
+  height: 100vh;
+}
 </style>
