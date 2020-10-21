@@ -7,6 +7,7 @@ Vue.use(Vuex)
 const state = {
    isShowSide:false,
    ifLogin:false,
+   tabIndex:1,
    uid:'',
    player:[],
    songId:'',

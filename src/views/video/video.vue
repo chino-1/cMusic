@@ -1,5 +1,7 @@
 <template>
-  <div id="video">
+  <div id="video" :class="{'isside':showside}">
+      <main-tab-bar></main-tab-bar>
+
       <video-play :recommendMvdata="MvId" v-if="vshow"></video-play>
 
       <div v-for="(item,index) in recommendMvdata" :key="index" v-show="!vshow">
@@ -24,17 +26,21 @@
   </div>
 </template>
 <script>
+import MainTabBar from 'components/content/maintabbar/maintabbar'
 import {getRecommendMv} from 'network/index'
 import VideoPlay from './videoplay'
+import {mapGetters} from 'vuex'
 export default {
    name:'Video',
    components:{
+       MainTabBar,
        VideoPlay
    },
    computed: {
+       ...mapGetters(['showside']),
        MvId(){
           return this.recommendMvdata[this.currentIndex].id
-       }
+       },
    },
    data() {
        return {
@@ -79,6 +85,7 @@ export default {
 }
 </script>
 <style scoped>
+@import "../../assets/css/usetabbar.css";
 #video{
     height: 100vh;
 }

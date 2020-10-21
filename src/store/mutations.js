@@ -6,6 +6,9 @@ export default {
     changeLogin(state){
         state.ifLogin = !state.ifLogin
     },
+    changeTabIndex(state,index){
+        state.tabIndex = index
+    },
     changeUid(state,user){
         state.uid = user.id 
     },

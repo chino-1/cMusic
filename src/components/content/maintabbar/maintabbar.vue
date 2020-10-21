@@ -18,7 +18,7 @@
             <div slot="left" @click="mclick"><i class="el-icon-notebook-2"></i></div>
             <div slot="center" class="title">
                 <div v-for="(item,index) in titles" class="title-item" @click="tabclick(index)"
-                :class="{active: index === currentIndex}"
+                :class="{active: index === tabindex}"
                 >{{item}}</div>
             </div>
             <div slot="right" @click="sclick"><i class="el-icon-search"></i></div>
@@ -42,11 +42,10 @@ export default {
    data() {
        return {
           titles:['我的','发现','云村','视频'],
-          currentIndex:1
        }
    },
    computed: {
-     ...mapGetters(['showside','islogin']),
+     ...mapGetters(['showside','islogin','tabindex']),
    },
    methods: {
      stop(){
@@ -64,7 +63,7 @@ export default {
            this.move()
       },
      tabclick(index){
-       this.currentIndex = index;
+       this.$store.commit('changeTabIndex',index)
        switch(index){
          case 0:
            this.$router.replace('/profile')

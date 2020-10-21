@@ -1,14 +1,16 @@
 <template>
-  <div id="home" >
+  <div id="home" :class="{'isside':showside}">
+    <main-tab-bar></main-tab-bar>
+    
     <home-swiper :swiperlist="swiperlist"></home-swiper>
     <find-recommend></find-recommend>
     <recommend-playlist v-if="!islogin"></recommend-playlist>
     <recommend-song v-if="!islogin"></recommend-song>
-    
     <song-sheet :songsheet="showsheet"></song-sheet>
   </div>
 </template>
 <script>
+import MainTabBar from 'components/content/maintabbar/maintabbar'
 import HomeSwiper from './childcomps/homeswiper'
 import FindRecommend from './childcomps/findrecommend'
 import RecommendPlaylist from './childcomps/recommendplaylist'
@@ -21,6 +23,7 @@ import {getSwiper,getSongSheet} from 'network/index'
 export default {
    name:'Home',
    components:{
+       MainTabBar,
        HomeSwiper,
        FindRecommend,
        RecommendPlaylist,
@@ -58,24 +61,11 @@ export default {
             this.swiperlist = res.banners
         })
        },
-       menuclick(){
-           this.$store.commit('changeSide')
-           this.stop()
-       },
-       notshowside(){
-           this.$store.commit('changeSide')
-           this.move()
-       },
-       stop(){
-	       document.body.style.overflow='hidden';//禁止页面划动
-	   },
-	   move(){
-	       document.body.style.overflow='';//遮罩层消失后调用，允许页面滚动
-	   },
    },
 }
 </script>
 <style scoped>
+@import "../../assets/css/usetabbar.css";
 #home{
     height: 100vh;
 }

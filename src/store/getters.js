@@ -5,6 +5,9 @@ export default {
     islogin(state){
         return state.ifLogin
     },
+    tabindex(state){
+        return state.tabIndex
+    },
     playsong(state){
         return state.player
     },
