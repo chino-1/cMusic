@@ -1,0 +1,11 @@
+.isside{
+    animation: bgcolor 2s forwards;
+ }
+ @keyframes bgcolor{
+     0%{
+         background-color: #fff;
+     }
+     100%{
+         background-color: #969696;
+     }
+ }
