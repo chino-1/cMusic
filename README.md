@@ -2,10 +2,11 @@
 vue搭建的仿网易云音乐简单项目，自学后做的第二个小项目，在此记录
 主要目录:components目录下一个common，放置一些其他项目也能使用的组件，content目录放置此项目用到的组件，view目录放置主页面，network目录使用axios网络请求，请求函数封装使用。
 
-#### 一.主页（发现页，只完成了发现页，无其他主页）
+#### 一.主页（无云村功能）
   1. 首页轮播图
   2. 歌单精选站的单排轮播
   3. 推荐歌曲三行轮播
+  4. 我的页面
   
 ![主页](https://github.com/chino-1/cMusic/blob/master/build/README-image/%E5%8F%91%E7%8E%B0%E4%B8%BB%E9%A1%B5home.png?raw=true)
 
