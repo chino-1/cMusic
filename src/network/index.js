@@ -59,7 +59,7 @@ export function getRecommendPlaylist(limit){ //推荐歌单
         params:{ limit }
     })
 }
-export function getRecommendSong(){ // 推荐歌曲
+export function getRecommendSong(){ // 推荐新歌曲
     return request({
         url:'/personalized/newsong'
     })

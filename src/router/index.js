@@ -24,7 +24,8 @@ Vue.use(Router)
 //   {path:'*',redirect:'/home'}
 // ]
 
-import PlayList from '../components/content/playlist/playlist'  //歌单页面不懒加载
+import PlayList from '../components/content/playlist/playlist'  
+import Viedo from '../views/video/video'    //歌单页面、视频页面不懒加载
 
 const routes = [
   {
@@ -32,8 +33,12 @@ const routes = [
     component:PlayList
   },
   {
-    path: '/',
-    redirect: '/Home'
+    path:'/viedo',
+    component:Viedo
+  },
+  {
+    path: '*',
+    redirect: '/home'
   },
   {
     path: '/home',
@@ -64,11 +69,6 @@ const routes = [
     path: '/playlistsquare',
     name: 'Playlistsquare',
     component: () => import('components/content/playlistsquare/playlistsquare.vue')
-  },
-  {
-    path: '/video',
-    name: 'Video',
-    component: () => import('views/video/video.vue')
   },
   {
     path: '/comment',

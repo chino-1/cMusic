@@ -4,9 +4,8 @@
     
     <home-swiper :swiperlist="swiperlist"></home-swiper>
     <find-recommend></find-recommend>
-    <recommend-playlist v-if="!islogin"></recommend-playlist>
-    <recommend-song v-if="!islogin"></recommend-song>
-    <song-sheet :songsheet="showsheet"></song-sheet>
+    <recommend-playlist></recommend-playlist>
+    <recommend-song></recommend-song>
   </div>
 </template>
 <script>
@@ -15,11 +14,9 @@ import HomeSwiper from './childcomps/homeswiper'
 import FindRecommend from './childcomps/findrecommend'
 import RecommendPlaylist from './childcomps/recommendplaylist'
 import RecommendSong from './childcomps/recommendsong'
-import SongSheet from './childcomps/songsheet'
 
 import {mapGetters} from 'vuex'
-
-import {getSwiper,getSongSheet} from 'network/index'
+import {getSwiper} from 'network/index'
 export default {
    name:'Home',
    components:{
@@ -28,32 +25,17 @@ export default {
        FindRecommend,
        RecommendPlaylist,
        RecommendSong,
-       SongSheet,
    },
    computed: {
-       ...mapGetters(['showside','islogin']),
-       showsheet(){
-           if(!this.$store.state.ifLogin) return{}
-           return this.songsheetlist   
-       },
-       uid(){
-           return this.$store.state.uid
-       }
+       ...mapGetters(['showside']),
    },
    data() {
        return {
            swiperlist:[],
-           songsheetlist:[],
        }
    },
    mounted() {
        this.getHomeSwiper()
-       this.$bus.$on('getuid',()=>{
-        getSongSheet(this.uid).then(res=>{
-        //   console.log(res)
-          this.songsheetlist = res.playlist  
-        })
-    })
    },
    methods: {
        getHomeSwiper(){

@@ -53,5 +53,5 @@ export default {
 }
 </script>
 <style scoped>
-@import "../../../../assets/css/sidebar.css";
+@import "../../../assets/css/sidebar.css";
 </style>

@@ -2,6 +2,7 @@ import Vue from 'vue'
 import App from './App'
 import router from './router/index'
 import store from './store/index'
+import toast from './components/common/toast'
 
 import * as filters from 'components/common/filters/index'  //全局过滤器
 Object.keys(filters).forEach(key=>{
@@ -22,7 +23,7 @@ import 'video.js/dist/video-js.css'
 Vue.use(VideoPlayer)
 
 import 'vue2-animate/dist/vue2-animate.min.css'
-
+Vue.use(toast)
 Vue.prototype.$bus = new Vue() //总线
 new Vue({
   el: '#app',

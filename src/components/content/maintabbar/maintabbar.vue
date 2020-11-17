@@ -28,8 +28,8 @@
 </template>
 <script>
 import NavBar from 'components/common/navbar/NavBar'
-import SideBar from 'views/home/childcomps/siderbar/sidebar'
-import LoginSideBar from 'views/home/childcomps/siderbar/loginsidebar'
+import SideBar from '../siderbar/sidebar'
+import LoginSideBar from '../siderbar/loginsidebar'
 import {mapGetters} from 'vuex'
 
 export default {
@@ -97,6 +97,9 @@ export default {
     top: 0;
 }
 
+.tab-bar{
+  background-color: #fff;
+}
 .title{
      display: flex;
      font-size: 12px;

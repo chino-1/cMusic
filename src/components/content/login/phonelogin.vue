@@ -22,7 +22,10 @@ export default {
           if(checkinput(this.phone) && checkinput(this.password)){
             this.$store.commit('changeLogin')
             this.$store.commit('changeSide')
-            this.$router.push('/home')
+            this.move()
+            // this.$router.go(-1)
+            this.$router.replace('/profile')
+            this.$store.commit('changeTabIndex',0)
             getLogin(this.phone,this.password).then(res=>{
                 //   console.log(res)
                 this.$store.commit('changeUid',res.account)
@@ -31,7 +34,10 @@ export default {
           }else{
               alert('禁止输入特殊字符或者使用跨站脚本攻击')
           }
-       }
+       },
+       move(){
+	       document.body.style.overflow='';//遮罩层消失后调用，允许页面滚动
+       },
    },
 }
 </script>
