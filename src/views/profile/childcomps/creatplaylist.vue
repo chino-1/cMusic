@@ -9,7 +9,7 @@
                 <i class="el-icon-more"></i>
               </div>
             </nav-bar>
-            <div v-if="userCreat" v-for="(item,index) in userCreat" :key="index" @click="itemclick(index)">
+            <div v-if="userCreat" v-show="ifLogin" v-for="(item,index) in userCreat" :key="index" @click="itemclick(index)">
                 <div class="playlist-item">
                     <div class="item-img"><img :src="item.coverImgUrl" alt=""></div>
                     <div class="text">
@@ -39,6 +39,11 @@ export default {
        default(){
          return []
        }
+     }
+   },
+   computed: {
+     ifLogin(){
+       return this.$store.state.ifLogin
      }
    },
    methods: {

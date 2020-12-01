@@ -1,11 +1,18 @@
 <template>
   <div>
-      <div class="container1">
-          <div class="usr"><i class="el-icon-user"></i></div>
-          <div class="text1" @click="loginclick">立即登录  ></div>
+      <div class="container1" v-show="!ifLogin">
+        <div class="usr"><i class="el-icon-user"></i></div>
+        <div class="text1" @click="loginclick">立即登录  ></div>
+      </div>
+      <div class="container2" v-show="ifLogin">
+          <div class="login-content">
+                <img :src="avatarurl" alt="">
+                <span>{{usernickname}}</span>
+                <span> > </span>
+          </div>
       </div>
 
-      <div class="container2">
+      <div class="container3">
            <div class="find-recommend">
                 <div v-for="(item,index) in recommend" :key="index" class="finditem">
                     <div class="icon">
@@ -18,15 +25,21 @@
   </div>
 </template>
 <script>
+import {getUserDetail} from 'network/index'
 export default {
    name:'FindRecommend',
-   methods: {
-       loginclick(){
-           this.$toast.show('此处只写了样式，可从侧边栏登录',2000)
+   computed: {
+       ifLogin(){
+           return this.$store.state.ifLogin
+       },
+       uid(){
+           return this.$store.state.uid
        }
    },
    data() {
        return {
+           avatarurl:'',
+           usernickname:'',
            recommend:[
                {
                 class:'el-icon-download',
@@ -63,6 +76,21 @@ export default {
            ]
        }
    },
+   methods: {
+       loginclick(){
+           this.$toast.show('此处只写了样式，可从侧边栏登录',2000)
+       }
+   },
+   watch: {
+       uid(newValue,oldValue){
+           if(this.ifLogin){
+              getUserDetail(newValue).then(res=>{
+                this.avatarurl = res.profile.avatarUrl
+                this.usernickname = res.profile.nickname
+              })
+           }
+       }
+   },
 }
 </script>
 <style scoped>
@@ -89,8 +117,28 @@ export default {
     font-size: 14px;
     font-weight: 600;
 }
-
 .container2{
+    padding: 10px;
+    display: flex;
+    align-items: center;
+}
+.login-content{
+    margin: 15px 15px;
+    display: flex;
+    align-items: center;
+}
+.login-content img{
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+}
+.login-content span{
+    padding-left: 10px;
+    font-size: 12px;
+    font-weight: 600;
+}
+
+.container3{
     border-radius: 8px;
     background-color: #fff;
     margin:0 10px;

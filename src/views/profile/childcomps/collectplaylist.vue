@@ -8,7 +8,7 @@
         </nav-bar>
 
         <div class="collect2" v-if="!islogin">暂无收藏的歌单</div><!-- 未登录显示 -->
-        <div v-if="userCollect" v-for="(item,index) in userCollect" :key="index" @click="itemclick(index)"><!-- 登录后显示 -->
+        <div v-if="userCollect" v-show="islogin" v-for="(item,index) in userCollect" :key="index" @click="itemclick(index)"><!-- 登录后显示 -->
             <div class="playlist-item">
                 <div class="item-img"><img :src="item.coverImgUrl" alt="" @load="imgLoad"></div>
                 <div class="text">
