@@ -1,5 +1,5 @@
 # cMusic
-vue搭建的仿网易云音乐简单项目，自学后做的第二个小项目，在此记录
+vue搭建的仿网易云音乐简单项目，自学后做的第二个小项目，在此记录,使用网易云接口地址https://github.com/Binaryify/NeteaseCloudMusicApi
 主要目录:components目录下一个common，放置一些其他项目也能使用的组件，content目录放置此项目用到的组件，view目录放置主页面，network目录使用axios网络请求，请求函数封装使用。
 
 #### 一.主页（无云村功能）
