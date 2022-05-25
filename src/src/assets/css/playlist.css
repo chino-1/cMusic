@@ -1,0 +1,120 @@
+.background{
+    background-color: rgba(160,82,45,0.4);
+}
+.songsheet{
+    display: flex;
+}
+.image img{
+    width: 100px;
+    height: 100px;
+    border-radius: 9px;
+}
+.text{
+    display: flex;
+    flex-direction: column;  /* 将flex布局下文字改为上下排版 */
+    padding-left: 0.3rem;
+}
+.name{
+    font-size: 14px;
+    color: #fff;
+    font-weight: 700;
+}
+.userInfo{
+    padding-top: 10px;
+    display: flex;
+}
+.userInfo img{
+    width: 30px;
+    height: 30px;
+    border-radius: 50%;
+}
+.userInfo span{
+    font-size: 10px;
+    line-height: 30px;
+    padding-left: 5px;
+}
+.des{
+    display: flex;
+    padding-top: 8px;
+}
+.description{
+    width: 8rem;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+.description-text{
+    font-size: 12px;
+    white-space: nowrap;
+}
+
+
+.iconbar{
+    padding-top: 8px;
+    padding-bottom: 8px;
+    display: flex;
+}
+.icon{
+    display: flex;
+    flex: 1;
+    flex-direction: column;
+    text-align: center;
+}
+.icon span{
+    font-size: 6px;
+}
+
+.list{
+    background-color: #fff;
+    padding-top: 8px;
+    border-radius: 10px;
+}
+.play-all{
+    display: flex;
+    margin: 4px 10px;
+}
+.play-all-text1{
+    padding-left: 10px;
+    font-weight: 700;
+}
+.play-all-text2{
+    font-weight: 300;
+    font-size: 8px;
+}
+
+.list-song-item{
+    display: flex;
+    align-items: center;
+    flex-direction: row; /* 默认值 */
+    flex-wrap: nowrap;
+    padding: .05rem 0;
+}
+.item-num{
+    flex-shrink: 0;
+    height: 40px;
+    width: 30px;
+    text-align: center;
+    line-height: 40px;
+}
+.item-detail{
+    flex: 1 0 75%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    overflow: hidden;
+}
+.song-name{
+    font-size: .16rem;
+    font-weight: 400;
+    text-overflow: ellipsis;
+    overflow: hidden;
+    white-space: nowrap;
+    color: black;
+}
+.song-singer{
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    overflow: hidden;
+    font-weight: 400;
+    font-size: .12rem;
+    color: gray;
+}
